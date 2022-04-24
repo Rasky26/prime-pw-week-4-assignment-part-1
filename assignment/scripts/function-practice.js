@@ -15,21 +15,91 @@ console.log('Test - should say "Hello World!"', hello());
 // 2. Function to return an personalized hello, using the `name` argument.
 //    for example 'Hello, Jo!', or 'Hello, Stacy!'
 function helloName( name ) {
-  return;
+  console.log(`\n-->   Input for question #2: ${name}`)
+  return `Hello, ${name}!`;
 }
 // Remember to call the function to test
+console.log(`Question #2: ${helloName('Colin')}`)
 
 
 // 3. Function to add two numbers together & return the result
-function addNumbers( firstNumber ) {
+function addNumbers( firstNumber, secondNumber ) {
+  console.log(`\n-->   Input for question #3: firstNumber: ${firstNumber}, secondNumber: ${secondNumber}`)
   // return firstNumber + secondNumber;
+  return firstNumber + secondNumber
 }
+
+// Logs out the answer to question #3
+console.log(`Question #3: ${addNumbers(1, 2)}`)
+
+// 3.a Adds an array of numbers and returns the result.
+//     Uses the `reduce()` function.
+//     Ref link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+//
+// Set the callable `reduce()` function, set `initialValue` to a default
+function addArray(numbersArray, initialValue=0) {
+   // call built-in `reduce()` function
+  return numbersArray.reduce(
+     // adds together digits using an arrow function
+    (exisingSum, nextValue) => exisingSum + nextValue,
+     // sets a starting value, specified as zero, though could be skipped if array exists
+    initialValue
+  )
+}
+
+// Initialize the values
+let addNumbersInArray = [2, 3, 5, 7, 11, 13]
+let initialValue = 0
+
+// Logs out the answer to question #3.a
+console.log(`\n-->   Input for question #3.a: [${addNumbersInArray}]`)
+console.log(`Question #3.a ${addArray(addNumbersInArray, initialValue)}`)
 
 
 // 4. Function to multiply three numbers & return the result
-function multiplyThree( ){
-
+function multiplyThree( num1, num2, num3 ){
+  console.log(`\n-->   Input for question #4: num1: ${num1}, num2: ${num2}, num3: ${num3}`)
+  // Multiply and return the values in a singular step
+  return num1 * num2 * num3
 }
+
+// Logs out the answer to quesiton #4
+console.log(`Question #4: ${multiplyThree(2, 3, 5)}`)
+
+
+// 4.a Function to multiply array of numbers, NOT using the `reduce()` function
+// Function that loops through the 
+function multiplyArray(valuesArray) {
+  
+  // Check for values in array
+  if (!valuesArray.length) {
+    return 0
+  }
+
+  // Set the starting value
+  let totalValue = valuesArray[0]
+
+  // Check if there was only a single value
+  if (valuesArray.length == 1) {
+    return totalValue
+  }
+
+  // Loop through remaining values, starting with the second value
+  for (let i = 1; i < valuesArray.length; i++) {
+    totalValue *= valuesArray[i]
+  }
+
+  // Return the results
+  return totalValue
+}
+
+// Initialize the values
+let multiplyNumbersInArray = [1, 1, 2, 3, 5, 8, 13]
+
+// Log out the answer to question #4.a
+console.log(`\n-->   Input for question #4.a: [${multiplyNumbersInArray}]`)
+console.log(`Question #4.a ${multiplyArray(multiplyNumbersInArray)}`)
+
 
 
 // 5. Function that will return true if a number is positive, 
